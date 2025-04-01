@@ -1,148 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap'); /* Using Inter font like many modern UIs */
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8f9fa; /* Light background */
+    font-family: sans-serif;
+    background-color: #f8f9fa;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align form to top */
     min-height: 100vh;
-    margin: 0;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.form-container {
-    background-color: #ffffff;
-    padding: 30px 40px;
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-    max-width: 500px;
-    width: 100%;
-}
-
-h1 {
-    font-size: 1.8em;
-    font-weight: 600;
-    margin-bottom: 10px;
+.title {
+    text-align: center;
     color: #333;
-    text-align: center;
+    margin-bottom: 20px; /* Remove default margin */
 }
 
-.form-container p {
-    font-size: 0.95em;
-    color: #666;
-    margin-bottom: 30px;
-    text-align: center;
+.form-container {
+    background-color: #FFDDD2;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Limit width */
+    width: 100%;
+    margin-top: 20px; /* Space below title */
 }
 
-.form-group {
-    margin-bottom: 20px;
-    position: relative; /* For potential icon positioning */
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.85em;
+label {
+    display: inline-block; /* Align labels better */
+    width: 140px; /* Fixed width for alignment */
+    margin-right: 10px;
     font-weight: 500;
     color: #555;
-    margin-bottom: 8px;
+    vertical-align: middle; /* Align with input */
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ced4da; /* Default border */
-    border-radius: 8px;
-    font-size: 1em;
-    box-sizing: border-box; /* Include padding in width */
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+input[type="number"],
+select {
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.95em;
+    width: calc(100% - 160px); /* Adjust width based on label width */
+    box-sizing: border-box;
+    margin-bottom: 5px; /* Space before <br> */
+    vertical-align: middle;
 }
 
-.form-group input[type="text"]::placeholder,
-.form-group input[type="number"]::placeholder {
-    color: #aaa;
+input[type="number"]:focus,
+select:focus {
+     border-color: #80bdff;
+     outline: 0;
+     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-/* Active/Focus state - mimics the blue border */
-.form-group input[type="text"]:focus,
-.form-group input[type="number"]:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #4dabf7; /* Blue border like 'Active' example */
-    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.2);
-}
-
-/* Styling for Select Arrow (optional, browser support varies) */
-.form-group select {
-    appearance: none; /* Remove default arrow */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22%236c757d%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M5.293%207.293a1%201%200%20011.414%200L10%2010.586l3.293-3.293a1%201%200%20111.414%201.414l-4%204a1%201%200%2001-1.414%200l-4-4a1%201%200%20010-1.414z%22/%3E%3C/svg%3E');
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 16px 16px;
-    padding-right: 40px; /* Make space for custom arrow */
-}
-
-
-/* --- Placeholder classes for Error/Success (add dynamically via JS/Backend) --- */
-.form-group.error input,
-.form-group.error select {
-    border-color: #e03131; /* Red border for error */
-}
-.form-group.error input:focus,
-.form-group.error select:focus {
-     box-shadow: 0 0 0 3px rgba(224, 49, 49, 0.2);
-}
-
-.form-group .error-message {
-    color: #e03131;
-    font-size: 0.8em;
-    margin-top: 5px;
-}
-
-/* Example: Add an icon inside the input like file_1.png (would need more specific positioning) */
-.success-icon {
-    position: absolute;
-    right: 15px;
-    top: 38px; /* Adjust based on label height and input padding */
-    color: #2f9e44; /* Green */
-    font-size: 1.2em;
-}
-
-.form-group.success input,
-.form-group.success select {
-    border-color: #2f9e44; /* Green border for success */
-}
-.form-group.success input:focus,
-.form-group.success select:focus {
-     box-shadow: 0 0 0 3px rgba(47, 158, 68, 0.2);
-}
-/* --- End Placeholder Error/Success --- */
-
-
-.submit-btn {
+button#predictButton {
     display: block;
     width: 100%;
-    padding: 12px 20px;
-    background-color: #144b7c; /* Blue button */
-    color: #ffffff;
+    padding: 10px 15px;
     font-size: 1.1em;
-    font-weight: 500;
+    color: #fff;
+    background-color: #006D77;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-    margin-top: 30px;
+    margin-top: 15px; /* Space above button */
 }
 
-.submit-btn:hover {
-    background-color: #4f5153; /* Darker blue on hover */
+button#predictButton:hover {
+    background-color: #83C5BE;
 }
 
-#result {
-    font-size: 24px;
-    font-weight: bold;
-    color: green;
+/* Result Area Styling */
+.result-area {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+    min-height: 20px; /* Prevent layout shift */
+    border: 1px solid transparent; /* Base border */
+}
+
+.result-area.loading {
+    color: #666;
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.result-area.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.result-area.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }
