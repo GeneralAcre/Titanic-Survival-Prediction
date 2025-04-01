@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Titanic Survival Prediction</h2>
+
+    <label>Passenger Class:</label>
+    <select id="passengerClass">
+        <option value="">Select class</option>
+        <option value="1">First Class</option>
+        <option value="2">Second Class</option>
+        <option value="3">Third Class</option>
+    </select><br><br>
+
+    <label>Sex:</label>
+    <select id="sex">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select><br><br>
+
+    <label>Age:</label>
+    <input type="number" id="age" placeholder="e.g., 30"><br><br>
+
+    <label>Siblings/Spouses:</label>
+    <input type="number" id="sibsp" placeholder="e.g., 1"><br><br>
+
+    <label>Parents/Children:</label>
+    <input type="number" id="parch" placeholder="e.g., 0"><br><br>
+
+    <label>Embarkation:</label>
+    <select id="embarkation">
+        <option value="">Select port</option>
+        <option value="S">Southampton</option>
+        <option value="C">Cherbourg</option>
+        <option value="Q">Queenstown</option>
+    </select><br><br>
+
+    <button id="predictButton">Predict Survival</button>
+
+    <!-- Link external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
