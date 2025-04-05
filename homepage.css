@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', serif;
+  }
+
+  .container {
+    display: flex;
+    height: 768px; /* previously 100vh */
+  }
+
+  .left {
+    flex: 1;
+    background: linear-gradient(to bottom, #0c2c45, #133a5c);
+    color: white;
+    padding: 64px 48px; /* 4rem 3rem */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 20.8px; /* 1.3rem */
+    font-weight: bold;
+    margin-bottom: 32px; /* 2rem */
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-size: 48px; /* 3rem */
+    margin-bottom: 16px; /* 1rem */
+  }
+
+  p {
+    font-size: 17.6px; /* 1.1rem */
+    max-width: 500px;
+  }
+
+  .btn {
+    margin-top: 32px; /* 2rem */
+    background-color: #f4a742;
+    color: black;
+    border: none;
+    padding: 14.4px 32px; /* 0.9rem 2rem */
+    font-size: 16px; /* 1rem */
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .btn:hover {
+    background-color: #e69324;
+  }
+
+  .right {
+    flex: 1;
+    background: url() no-repeat center center;
+    background-size: cover;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .right {
+      height: 400px; /* previously 50vh */
+    }
+  }
