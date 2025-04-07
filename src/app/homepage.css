@@ -1,66 +1,66 @@
 /* Full page container */
 .container {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    font-family: 'Georgia', serif;
-    overflow: hidden;
-  }
-  
-  /* Left side styling */
-  .left {
-    background-color: #2541B2;
-    color: white;
-    width: 50%;
-    padding: 60px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .logo {
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-  }
-  
-  /* Headline styling */
-  .fade-text {
-    font-size: 48px;
-    font-weight: 800;
-    margin-bottom: 20px;
-  }
-  
-  /* Paragraph styling */
-  .left p {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 40px;
-  }
-  
-  /* Button styling */
-  .btn {
-    background-color: #03256C;
-    color: #F9C784;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 16px 24px;
-    border-radius: 6px;
-    width: fit-content;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #485696;
-  }
-  
-  /* Right image styling */
-  .right {
-    width: 75%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  font-family: 'Georgia', serif;
+  overflow: hidden;
+}
+
+/* Left side styling */
+.left {
+  background-color: #2541B2;
+  color: white;
+  width: 50%;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* Headline styling */
+.fade-text {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+/* Paragraph styling */
+.left p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+/* Button styling */
+.btn {
+  background-color: #03256C;
+  color: #F9C784;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: fit-content;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #485696;
+}
+
+/* Right image styling */
+.right {
+  width: 75%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
