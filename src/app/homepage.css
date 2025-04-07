@@ -10,7 +10,7 @@
   
   /* Left side styling */
   .left {
-    background-color: #0e355d;
+    background-color: #2541B2;
     color: white;
     width: 50%;
     padding: 60px 40px;
@@ -20,7 +20,7 @@
   }
   
   .logo {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 20px;
@@ -42,8 +42,8 @@
   
   /* Button styling */
   .btn {
-    background-color: #f9b33a;
-    color: #000;
+    background-color: #03256C;
+    color: #F9C784;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -54,13 +54,13 @@
   }
   
   .btn:hover {
-    background-color: #e89e24;
+    background-color: #485696;
   }
   
   /* Right image styling */
   .right {
-    width: 50%;
-    object-fit: cover;
+    width: 75%;
     height: 100%;
+    object-fit: cover;
+    display: block;
   }
-  
