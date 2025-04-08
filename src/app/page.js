@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import style from "./homepage.css";
 import Image from "next/image";
+// import Sidebar from "./components/Sidebar"; // optional
 
 const Page = () => {
   useEffect(() => {
@@ -20,38 +21,45 @@ const Page = () => {
     let index = 0;
 
     const interval = setInterval(() => {
-      // Fade out
       heading.style.opacity = 0;
 
       setTimeout(() => {
-        // Change text and fade in
         index = (index + 1) % messages.length;
         heading.textContent = messages[index];
         heading.style.opacity = 1;
-      }, 500); // match transition duration
-    }, 3000); // change every 3 seconds
+      }, 500);
+    }, 3000);
 
-    // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="container">
-      <div className="left">
-        <div className="logo">TITANIC PREDICTION</div>
-        <h1 id="Titanic-Animated" className="fade-text">
-          Will You Survive the Titanic?
-        </h1>
-        <p>
-          Enter your details and see if you would have survived the Titanic
-          disaster.
-        </p>
-        <Link className="btn" href="/form">
-          START PREDICTION
-        </Link>
-      </div>
+    <div className="wrapper">
+      <div className="container">
+        <div className="top-section">
+          <div className="logo">TITANIC PREDICTION</div>
 
-      <img className="right" src="Titanic.jpg" alt="Titanic" />
+          <hr className="Line" /> 
+
+          <h1 id="Titanic-Animated" className="fade-text">
+            Will You Survive the Titanic?
+          </h1>
+          <p className="Intro">
+            Enter your details and see if you would have survived the Titanic disaster.
+          </p>
+        </div>
+
+        <div className="bottom-section">
+          <Image className="image" src="/Titanic.jpg" width={380} height={750} alt="Titanic" />
+        </div>
+
+        <div className="button-container">
+          <Link className="btn" href="/form">
+              START PREDICTION
+          </Link>
+        </div>
+
+      </div>
     </div>
   );
 };

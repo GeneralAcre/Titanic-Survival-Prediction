@@ -1,46 +1,68 @@
-/* Full page container */
-.container {
-  display: flex;
-  height: 100vh;
-  width: 100%;
+/* Reset */
+* {
   margin: 0;
-  font-family: 'Georgia', serif;
-  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Left side styling */
-.left {
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Raleway, sans-serif;
+  overflow-x: hidden;
   background-color: #2541B2;
-  color: white;
-  width: 50%;
+}
+.warning {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    display: none;
+  }
+  .warning {
+    display: block;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  color: #E7E7E7;
+}
+
+
+.top-section {
   padding: 60px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+
 }
 
-/* Headline styling */
 .fade-text {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 30px;
 }
 
-/* Paragraph styling */
-.left p {
+.Intro {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 40px;
 }
 
-/* Button styling */
 .btn {
   background-color: #03256C;
   color: #F9C784;
@@ -57,10 +79,34 @@
   background-color: #485696;
 }
 
-/* Right image styling */
-.right {
-  width: 75%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
 }
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.Line{
+  border: none;
+  height: 2px;
+  background-color: #E7E7E7; 
+  width: 100%;
+  margin: 10px ;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically if you want */
+  margin-top: 20px;         /* spacing from image */
+}
+
+
