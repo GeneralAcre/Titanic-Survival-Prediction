@@ -6,25 +6,14 @@ import Link from 'next/link';
 import './form.css';
 
 export default function Home() {
-  const [formData, setFormData] = useState({
-    userName: '',
-    passengerClass: '',
-    sex: 'male',
-    age: '',
-    sibsp: '',
-    parch: '',
-    embarkation: 'S',
-  });
+  const [formData, setFormData] = useState({userName: '',passengerClass: '',sex: 'male',age: '',sibsp: '',parch: '',embarkation: 'S',});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((prevData) => ({...prevData,[name]: value,}));
   };
 
-  // Survival prediction logic
+  // กัาหนดอัตราการรอด
   const survivalByEmbarked = {
     "C": 0.553571, "Q": 0.389610, "S": 0.339009
   };
@@ -38,13 +27,15 @@ export default function Home() {
     "Alone": 0.303538, "Large": 0.161290, "Small": 0.578767
   };
 
-  // Calculate the survival prediction
+  // คํานวณการรอด
   const calculatePrediction = () => {
     let survivalScore = 0;
 
-    // Get values from form data
+    // เอาค่าจาก Data
     const { passengerClass, sex, embarkation, sibsp, parch } = formData;
 
+
+    // ไม่เจอ data ให้ตั้งเป็น 0
     survivalScore += survivalByPclass[passengerClass] || 0;
     survivalScore += survivalBySex[sex] || 0;
     survivalScore += survivalByEmbarked[embarkation] || 0;
@@ -59,7 +50,7 @@ export default function Home() {
     return survivalScore > 0.5 ? 'Survived' : 'Not Survived';
   };
 
-  // Store form data and prediction in sessionStorage
+  // เก็บข้อมูลใน data
   const storeDataAndNavigate = () => {
     const prediction = calculatePrediction();
     if (typeof window !== 'undefined') {
@@ -76,15 +67,9 @@ export default function Home() {
             {/* Form fields */}
             <div>
               <label htmlFor="userName">Your Name:</label>
-              <input
-                type="text"
-                id="userName"
-                name="userName"
-                value={formData.userName}
-                onChange={handleChange}
-                placeholder="Enter your name"
-              />
+              <input type="text" id="userName" name="userName" value={formData.userName} onChange={handleChange} placeholder="Enter your name"/>
             </div>
+            
             <div>
               <label htmlFor="passengerClass">Passenger Class:</label>
               <select
@@ -164,9 +149,7 @@ export default function Home() {
                 <option value="Q">Queenstown (Q)</option>
               </select>
             </div>
-            <Link href="/Result" onClick={storeDataAndNavigate} className="predict-button">
-              Predict
-            </Link>
+            <Link href="/Result" onClick={storeDataAndNavigate} className="predict-button">Predict</Link>
           </form>
         </div>
       </div>

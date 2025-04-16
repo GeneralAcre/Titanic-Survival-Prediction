@@ -81,6 +81,8 @@ export default function Result() {
     return <div>Loading...</div>; // Show loading state until data is available
   }
 
+
+  // ตอน Return รับค่าที่กรอกมาจาก Form
   return (
     <div className='wrapper'>
       <div className="result-container">

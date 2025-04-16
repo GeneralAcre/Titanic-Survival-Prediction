@@ -1,12 +1,11 @@
-import './globals.css';
-import { Barlow } from 'next/font/google';
-import Sidebar from './components/Sidebar';
+import './CSS/globals.css';
+import { Rethink_Sans } from 'next/font/google';
+import Menubar from './components/Menubar';
 
-// ✅ Load fonts at module scope
-const barlow = Barlow({
-  variable: '--font-Barlow',
+const rethinkSans = Rethink_Sans({
+  variable: '--font-RethinkSans',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700']
+  weight: ['400', '500', '700']
 });
 
 export const metadata = {
@@ -14,12 +13,11 @@ export const metadata = {
   description: 'My Next.js App with Sidebar',
 };
 
-// ✅ Root Layout must return <html> and <body>
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${barlow.variable} antialiased`}>
-        <Sidebar />
+      <body className={`${rethinkSans.variable} antialiased`}>
+        <Menubar />
         {children}
         <div className="warning">
           Please use a smaller screen to view this website
