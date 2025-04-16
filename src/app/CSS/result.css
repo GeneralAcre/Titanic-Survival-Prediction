@@ -123,6 +123,3 @@ strong {
     font-size: 28px;
   }
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
