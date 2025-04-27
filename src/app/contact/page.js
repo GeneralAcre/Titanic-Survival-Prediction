@@ -1,9 +1,9 @@
 export default function contact(){
     return(
-        <div className="min-h-screen flex flex-col justify-between bg-white">
+        <div className="bg-white w-full h-full min-h-screen overflow-hidden">
             <div className="ml-[45px]">
                 
-                <div className="text-5xl text-[#2541B2] font-medium leading-[50px] mb-[40px]">CONTACT</div>
+                <div className="text-5xl text-[#2541B2] font-medium leading-[50px] mb-[40px] mt-[65px] ">CONTACT</div>
                 <p className="text-[#2541B2] bg-[#EEC750] px-[5px] py-1 text-[20px] mb-[35px] inline-block">Let’s build something great together!</p>
                 
                 <div className="mb-[5px]">

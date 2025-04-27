@@ -1,106 +1,97 @@
-'use client'; // Ensure this is at the top to enable the client-side behavior
+'use client';
 
 import { useEffect, useState } from 'react';
-import style from './result.css'
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-export default function Result() {
-  const [formData, setFormData] = useState(null);
+export default function Results() {
+  const router = useRouter();
+  const [userData, setUserData] = useState(null);
   const [prediction, setPrediction] = useState(null);
-
-  // Survival prediction logic
-  const survivalByEmbarked = {
-    "C": 0.553571, "Q": 0.389610, "S": 0.339009
-  };
-  const survivalByPclass = {
-    "1": 0.629630, "2": 0.472826, "3": 0.242363
-  };
-  const survivalBySex = {
-    "female": 0.742038, "male": 0.188908
-  };
-  const survivalByFamilySize = {
-    "Alone": 0.303538, "Large": 0.161290, "Small": 0.578767
-  };
-
-  // Calculate survival score based on user input
-  const calculateSurvivalScore = (formData) => {
-    let survivalScore = 0;
-
-    // Add survival score based on passenger class
-    survivalScore += survivalByPclass[formData.passengerClass] || 0;
-
-    // Add survival score based on sex
-    survivalScore += survivalBySex[formData.sex] || 0;
-
-    // Add survival score based on embarkation point
-    survivalScore += survivalByEmbarked[formData.embarkation] || 0;
-
-    // Calculate family size and determine family category (Alone, Large, Small)
-    const familySize = parseInt(formData.sibsp) + parseInt(formData.parch);
-    let familyCategory = "Alone";
-    if (familySize > 3) {
-      familyCategory = "Large";
-    } else if (familySize > 0) {
-      familyCategory = "Small";
-    }
-
-    // Add survival score based on family category
-    survivalScore += survivalByFamilySize[familyCategory] || 0;
-
-    return survivalScore;
-  };
-
-  // Compute the prediction based on survival score
-  const getPrediction = (survivalScore) => {
-    return survivalScore / 4 > 0.5 ? "Survived" : "Not Survived";
-  };
-
+  const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
+    // Retrieve data from session storage
     if (typeof window !== 'undefined') {
-      // Retrieving the form data and prediction from sessionStorage
-      const storedFormData = sessionStorage.getItem('formData');
+      const storedData = sessionStorage.getItem('formData');
       const storedPrediction = sessionStorage.getItem('prediction');
-
-      // Check if data exists, then parse and set it in state
-      if (storedFormData && storedPrediction) {
-        const parsedFormData = JSON.parse(storedFormData);
-        setFormData(parsedFormData);
-
-        // Calculate the survival score based on the form data
-        const survivalScore = calculateSurvivalScore(parsedFormData);
-
-        // Get the final prediction based on survival score
-        const finalPrediction = getPrediction(survivalScore);
-
-        setPrediction(finalPrediction); // Set the prediction state
+      
+      if (storedData && storedPrediction) {
+        setUserData(JSON.parse(storedData));
+        setPrediction(storedPrediction);
+      } else {
+        // If there's no data, redirect back to form
+        router.push('/');
       }
+      
+      setIsLoading(false);
     }
-  }, []); // Empty dependency array ensures this effect runs only once after the initial render
+  }, [router]);
 
-  if (!formData || !prediction) {
-    return <div>Loading...</div>; // Show loading state until data is available
+  // If still loading or no data was found, show loading state
+  if (isLoading) {
+    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+  }
+  
+  // If no data was found and not redirecting yet
+  if (!userData || !prediction) {
+    return <div className="flex justify-center items-center h-screen">No data found. Redirecting...</div>;
   }
 
-
-  // ตอน Return รับค่าที่กรอกมาจาก Form
   return (
-    <div className='wrapper'>
-      <div className="result-container">
-        <h1>Prediction Result</h1>
-        <p><strong>Name:</strong> {formData.userName}</p>
-        <p><strong>Prediction:</strong> {prediction}</p>
-        <p><strong>Passenger Class:</strong> {formData.passengerClass === "1" ? "First Class" :
-                                            formData.passengerClass === "2" ? "Second Class" :
-                                            "Third Class"}</p>
-        <p><strong>Sex:</strong> {formData.sex === "male" ? "Male" : "Female"}</p>
-        <p><strong>Age:</strong> {formData.age}</p>
-        <p><strong>Siblings/Spouses:</strong> {formData.sibsp}</p>
-        <p><strong>Parents/Children:</strong> {formData.parch}</p>
-        <p><strong>Embarkation:</strong> {formData.embarkation === "S" ? "Southampton" :
-                                          formData.embarkation === "C" ? "Cherbourg" : "Queenstown"}</p>
-
+    <div className="bg-white w-full min-h-screen p-8">
+      <div className="flex flex-col md:flex-row max-w-6xl mx-auto gap-8">
+        {/* Survived Panel - Always visible but highlighted if prediction is "Survived" */}
+        <div className={`w-full md:w-1/2 bg-white rounded-[20px] overflow-hidden shadow-lg p-8 ${prediction === 'Survived' ? 'ring-4 ring-[#2541B2]' : 'opacity-50'}`}>
+          <div className="flex justify-between items-center mb-6">
+            <div className="text-[#2541B2] text-2xl">△</div>
+            <div className="text-[#2541B2] text-2xl">☰</div>
+          </div>
+          
+          <h2 className="text-3xl text-[#2541B2] font-bold mb-6">Congratulations</h2>
+          
+          {userData && (
+            <p className="text-lg mb-4">Hello, {userData.userName}!</p>
+          )}
+          
+          <p className="text-gray-700 mb-6">
+            Against the odds, you made it through one of the most tragic 
+            maritime disasters in history. Your courage, timing, and a bit of 
+            luck helped you find a place on a lifeboat and reach safety.
+          </p>
+        </div>
+        
+        {/* Not Survived Panel - Always visible but highlighted if prediction is "Not Survived" */}
+        <div className={`w-full md:w-1/2 bg-white rounded-[20px] overflow-hidden shadow-lg p-8 ${prediction !== 'Survived' ? 'ring-4 ring-[#2541B2]' : 'opacity-50'}`}>
+          <div className="flex justify-between items-center mb-6">
+            <div className="text-[#2541B2] text-2xl">△</div>
+            <div className="text-[#2541B2] text-2xl">☰</div>
+          </div>
+          
+          <h2 className="text-3xl text-[#2541B2] font-bold mb-6">In Memoriam</h2>
+          
+          {userData && (
+            <p className="text-lg mb-4">In memory of {userData.userName}</p>
+          )}
+          
+          <p className="text-gray-700 mb-4">
+            Despite every effort, you were among the many lives lost in the
+            early hours of April 15, 1912. You were part of a moment in history
+            that reshaped maritime safety forever.
+          </p>
+          
+          <p className="text-gray-700 mb-6">
+            May your memory live on through the generations.
+          </p>
+        </div>
+      </div>
+      
+      {/* Try Again Button */}
+      <div className="text-center mt-8">
+        <Link href="/" className="bg-[#EEC750] text-[#243D9F] py-2 px-6 rounded-[5px] hover:bg-[#d4ae42] inline-block">
+          Try Again
+        </Link>
       </div>
     </div>
-
   );
 }

@@ -4,8 +4,10 @@
 }
 
 body {
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-RethinkSans);
+  background-color: #2541B2
 }
+
 .warning {
   display: none;
 }
@@ -19,7 +21,4 @@ body {
   }
 }
 
-body{
-  background-color: #2541B2;
-}
 
