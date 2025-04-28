@@ -25,9 +25,9 @@ export default function contact(){
                     <div className="bg-[#2541B2] h-[166px] relative">
                         <div className="text-[#EEC750] text-[18px] absolute top-[24px] ml-[45px]">Follow me on social network</div>
 
-                        <div className="absolute top-[80px] left-[32px] flex space-x-20 px-[25px]">
-                            <button className="border border-white text-white px-10 py-3">Instagram</button>
-                            <button className="border border-white text-white px-10 py-3">LinkedIn</button>
+                        <div className="absolute top-[80px] left-[20px] flex space-x-20 px-[25px]">
+                            <button className="border border-white text-white py-3 w-[170px]">Instagram</button>
+                            <button className="border border-white text-white py-3 w-[170px]">LinkedIn</button>
                         </div>
 
                     </div>
