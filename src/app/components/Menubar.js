@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import style from '../CSS/component.style.css'
 
 const Menubar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
