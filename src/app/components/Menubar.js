@@ -7,9 +7,7 @@ import Image from "next/image";
 const Menubar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => {setIsMenuOpen(!isMenuOpen);};
 
   return (
     <>

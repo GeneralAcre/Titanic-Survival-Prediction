@@ -41,39 +41,28 @@ export default function Home() {
       // Weighted average (sex has highest weight)
     const totalProbability = ((sexProbability * 0.4) +(classProbability * 0.3) +(familyProbability * 0.2) +(embarkProbability * 0.1));
 
-    console.log('Probabilities:', {
-      sex: sexProbability,
-      class: classProbability,
-      embark: embarkProbability,
-      family: familyProbability,
-      total: totalProbability
-    });
+    console.log('Probabilities:', {sex: sexProbability,class: classProbability,embark: embarkProbability,family: familyProbability,total: totalProbability});
     return totalProbability > 0.5 ? 'Survived' : 'Not Survived';
   };
 
-  const storeDataAndNavigate = (e) => {
-    e.preventDefault();
+  const storeDataAndNavigate = (e) => {e.preventDefault();
   
     const errors = {};
     Object.keys(formData).forEach((key) => {
       if (!formData[key]) {errors[key] = 'This field is required.';}});
 
     // Validate the full name
-    if (!formData.userName.trim()) {
-      errors.userName = 'Full name must be filled.';
-    }
+    if (!formData.userName.trim()) {errors.userName = 'Full name must be filled.';}
   
     const numericFields = ['passengerClass', 'age', 'sibsp', 'parch'];
     numericFields.forEach((field) => {
-      if (field === 'passengerClass' && !formData[field]) {
-        errors[field] = 'Please select a passenger class.';
+      if (field === 'passengerClass' && !formData[field]) {errors[field] = 'Please select a passenger class.';
         return;
       }
       
       const value = Number(formData[field]);
   
-      if (field !== 'passengerClass' && isNaN(value)) {
-        errors[field] = 'This field must be a number.';
+      if (field !== 'passengerClass' && isNaN(value)) {errors[field] = 'This field must be a number.';
       } else if (value < 0) {
         errors[field] = 'Must be a positive number.';
       }
