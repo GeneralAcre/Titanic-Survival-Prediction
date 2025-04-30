@@ -20,7 +20,7 @@ export default function Home(){
 
       <div className="mr-[34px]">
         <h3 className="text-3xl text-[#EEC750] font-medium ml-[45px] mb-[30px]">DID YOU KNOW</h3>
-        <p className="text-[20px] text-[#FFFFFF] ml-[45px] mb-[30px] w-[80%]">The Titanic was a massive luxury ship that was called "unsinkable," 
+        <p className="text-[20px] text-[#FFFFFF] ml-[45px] mb-[30px] w-[80%]">The Titanic was a massive luxury ship that was called &quot;unsinkable,&quot; 
         but on its first trip in 1912, it hit an iceberg and sank, becoming one of the most famous disasters in history !
         </p>
         <h3 className="text-3xl text-[#EEC750] font-medium ml-[45px] mb-[30px]">DON’T WAIT TIME ANY MORE</h3>
