@@ -99,95 +99,139 @@ export default function Home() {
     router.push('/Result');
   };
 
-  return (
-    <div className="bg-white w-full h-full min-h-screen overflow-hidden ">
+   return (
+    <div className="bg-white w-full min-h-screen overflow-hidden">
       <div className="text-5xl text-[#2541B2] font-medium mt-[65px] mb-[65px] ml-[45px]">FORM</div>
-      
-      {/* Form */}
-      <div className='flex justify-center items-center mb-[65px]'>
-        <div className="w-[400px] bg-[#2541B2] rounded-[30px] overflow-hidden text-white shadow-lg">
+
+      {/* Centered Form Box - responsive only on mobile */}
+      <div className="flex justify-center items-center mb-[65px] px-4 sm:px-0">
+        <div className="w-full max-w-[400px] bg-[#2541B2] rounded-[30px] overflow-hidden text-white shadow-lg">
           
           {/* Yellow Header */}
           <div className="bg-[#EEC750] text-center py-4">
             <p className="text-[#243D9F] font-bold text-[20px]">ENTER YOUR INFORMATION</p>
           </div>
-    
-    
-          <form className="p-[22px] space-y-4" onSubmit= {storeDataAndNavigate}>
-            
-            {/* Each Input Section */}
+
+          <form className="p-[22px] space-y-4" onSubmit={storeDataAndNavigate}>
             <div className="flex flex-col space-y-[10px]">
-              <label className="text-[16px]">Full name : {formErrors.userName && <span className="text-[#EEC750] text-[14px]">{formErrors.userName}</span>}</label>
-              <input type="text" id="userName" name="userName" value={formData.userName} onChange={handleChange} placeholder="Enter your name"
-                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]" />
+              <label className="text-[16px]">
+                Full name : {formErrors.userName && <span className="text-[#EEC750] text-[14px]">{formErrors.userName}</span>}
+              </label>
+              <input
+                type="text"
+                id="userName"
+                name="userName"
+                value={formData.userName}
+                onChange={handleChange}
+                placeholder="Enter your name"
+                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"
+              />
             </div>
 
-            {/* Drop down Menu */}
             <div className="flex flex-col space-y-[10px]">
-              <label className="text-[16px]">Passenger Class : {formErrors.passengerClass && <span className="text-[#EEC750] text-[14px]">{formErrors.passengerClass}</span>}</label>
-
-              <select type="text" id="passengerClass" name="passengerClass" value={formData.passengerClass} onChange={handleChange} 
-                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]">
-
-                <option value="1" className="bg-[#EEC750] text-[#2541B2] font-bold " > First Class </option> 
-                <option value="2" className="bg-[#EEC750] text-[#2541B2] font-bold " > Second Class </option> 
-                <option value="3" className="bg-[#EEC750] text-[#2541B2] font-bold " > Third Class </option>
-
-              </select>
-
-            </div>
-    
-            <div className="flex flex-col space-y-[10px]">
-              <label className="text-[16px]">Sex : {formErrors.sex && <span className="text-[#EEC750] text-[14px]">{formErrors.sex}</span>}</label>
-              <select type="text" id="sex" name="sex" value={formData.sex} onChange={handleChange} placeholder="Male / Female"
-                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]">
-
-                <option value="male" className="bg-[#EEC750] text-[#2541B2] font-bold ">Male</option>
-                <option value="female" className="bg-[#EEC750] text-[#2541B2] font-bold ">Female</option>
-
-              </select>
-                
-            </div>
-    
-            <div className="flex flex-col space-y-[10px]">
-              <label className="text-[16px]">Age : {formErrors.age && <span className="text-[#EEC750] text-[14px]">{formErrors.age}</span>}</label>
-              <input type="number" id="age" name="age" value={formData.age} onChange={handleChange} placeholder="e.g., 30"
-                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"/>
-            </div>
-    
-            <div className="flex flex-col space-y-[10px]">
-              <label className="text-[16px]">Siblings/Spouses : {formErrors.sibsp && <span className="text-[#EEC750] text-[14px]">{formErrors.sibsp}</span>}</label>
-              <input type="number" id="sibsp" name="sibsp" value={formData.sibsp} onChange={handleChange} placeholder="e.g., 1"
-                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"/>
-            </div>
-    
-            <div className="flex flex-col space-y-[10px]">
-              <label className="text-[16px]">Parents/Children : {formErrors.parch && <span className="text-[#EEC750] text-[14px]">{formErrors.parch}</span>}</label>
-              <input type="number" id="parch" name="parch" value={formData.parch} onChange={handleChange} placeholder="e.g., 0"
-                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"/>
-            </div>
-    
-            <div className="flex flex-col space-y-[10px]">
-              <label className="text-[16px]">Embarkation : {formErrors.embarkation && <span className="text-[#EEC750] text-[14px]">{formErrors.embarkation}</span>}</label>
-              <select type="text" id="embarkation" name="embarkation" value={formData.embarkation} onChange={handleChange} 
-                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750] mb-[30px]">
-
-                  <option value="Cherbourg" className="bg-[#EEC750] text-[#2541B2] font-bold ">Cherbourg</option>
-                  <option value="Queenstown" className="bg-[#EEC750] text-[#2541B2] font-bold ">Queenstown</option>
-                  <option value="Southampton" className="bg-[#EEC750] text-[#2541B2] font-bold ">Southampton</option>
-
+              <label className="text-[16px]">
+                Passenger Class : {formErrors.passengerClass && <span className="text-[#EEC750] text-[14px]">{formErrors.passengerClass}</span>}
+              </label>
+              <select
+                id="passengerClass"
+                name="passengerClass"
+                value={formData.passengerClass}
+                onChange={handleChange}
+                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"
+              >
+                <option value="1" className="bg-[#EEC750] text-[#2541B2] font-bold">First Class</option>
+                <option value="2" className="bg-[#EEC750] text-[#2541B2] font-bold">Second Class</option>
+                <option value="3" className="bg-[#EEC750] text-[#2541B2] font-bold">Third Class</option>
               </select>
             </div>
-    
-            {/* Submit Button */} {/* Block - take full row*/} {/* mx-auto - center and horizontal*/}
-            <button type="submit" 
-              className="bg-[#EEC750] text-[#243D9F] py-2 w-[170px] rounded-[5px] hover:bg-[#d4ae42] block mx-auto  ">Submit</button>
-    
+
+            <div className="flex flex-col space-y-[10px]">
+              <label className="text-[16px]">
+                Sex : {formErrors.sex && <span className="text-[#EEC750] text-[14px]">{formErrors.sex}</span>}
+              </label>
+              <select
+                id="sex"
+                name="sex"
+                value={formData.sex}
+                onChange={handleChange}
+                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"
+              >
+                <option value="male" className="bg-[#EEC750] text-[#2541B2] font-bold">Male</option>
+                <option value="female" className="bg-[#EEC750] text-[#2541B2] font-bold">Female</option>
+              </select>
+            </div>
+
+            <div className="flex flex-col space-y-[10px]">
+              <label className="text-[16px]">
+                Age : {formErrors.age && <span className="text-[#EEC750] text-[14px]">{formErrors.age}</span>}
+              </label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                value={formData.age}
+                onChange={handleChange}
+                placeholder="e.g., 30"
+                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"
+              />
+            </div>
+
+            <div className="flex flex-col space-y-[10px]">
+              <label className="text-[16px]">
+                Siblings/Spouses : {formErrors.sibsp && <span className="text-[#EEC750] text-[14px]">{formErrors.sibsp}</span>}
+              </label>
+              <input
+                type="number"
+                id="sibsp"
+                name="sibsp"
+                value={formData.sibsp}
+                onChange={handleChange}
+                placeholder="e.g., 1"
+                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"
+              />
+            </div>
+
+            <div className="flex flex-col space-y-[10px]">
+              <label className="text-[16px]">
+                Parents/Children : {formErrors.parch && <span className="text-[#EEC750] text-[14px]">{formErrors.parch}</span>}
+              </label>
+              <input
+                type="number"
+                id="parch"
+                name="parch"
+                value={formData.parch}
+                onChange={handleChange}
+                placeholder="e.g., 0"
+                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750]"
+              />
+            </div>
+
+            <div className="flex flex-col space-y-[10px]">
+              <label className="text-[16px]">
+                Embarkation : {formErrors.embarkation && <span className="text-[#EEC750] text-[14px]">{formErrors.embarkation}</span>}
+              </label>
+              <select
+                id="embarkation"
+                name="embarkation"
+                value={formData.embarkation}
+                onChange={handleChange}
+                className="px-3 py-2 rounded border border-white bg-[#2541B2] focus:outline-none focus:ring-2 focus:ring-[#EEC750] mb-[30px]"
+              >
+                <option value="Cherbourg" className="bg-[#EEC750] text-[#2541B2] font-bold">Cherbourg</option>
+                <option value="Queenstown" className="bg-[#EEC750] text-[#2541B2] font-bold">Queenstown</option>
+                <option value="Southampton" className="bg-[#EEC750] text-[#2541B2] font-bold">Southampton</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              className="bg-[#EEC750] text-[#243D9F] py-2 w-[170px] rounded-[5px] hover:bg-[#d4ae42] block mx-auto"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>
-
     </div>
-
   );
 }
