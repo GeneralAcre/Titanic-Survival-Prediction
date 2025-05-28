@@ -21,30 +21,31 @@ export default function Contact() {
   
         {/* Footer */}
         <footer className="mt-auto flex justify-center">
-          <div className="w-[486px] max-w-full">
-            {/* Blue Box */}
-            <div className="bg-[#2541B2] h-[166px] relative">
-              <div className="text-[#EEC750] text-[18px] absolute top-[24px] ml-4 sm:ml-[45px] right-4">
-                Follow me on social network
-              </div>
-  
-              <div className="absolute top-[80px] left-4 sm:left-[20px] right-4 flex flex-col sm:flex-row sm:space-x-20 space-y-4 sm:space-y-0 px-[25px] sm:px-0">
-                <button className="border border-white text-white py-3 w-full sm:w-[170px]">
-                  Instagram
-                </button>
-                <button className="border border-white text-white py-3 w-full sm:w-[170px]">
-                  LinkedIn
-                </button>
-              </div>
+            <div className="w-[486px] max-w-full">
+                {/* Blue Box */}
+                <div className="bg-[#2541B2] h-[166px] relative">
+                <div className="text-[#EEC750] text-[18px] absolute top-[24px] ml-[45px]">
+                    Follow me on social network
+                </div>
+
+                {/* Buttons container */}
+                <div className="absolute top-[80px] left-[20px] right-[20px] flex justify-between px-0">
+                    <button className="border border-white text-white py-3 w-[170px]">
+                    Instagram
+                    </button>
+                    <button className="border border-white text-white py-3 w-[170px]">
+                    LinkedIn
+                    </button>
+                </div>
+                </div>
+
+                {/* Yellow Box */}
+                <div className="bg-[#EEC750] h-[166px] flex flex-col justify-center text-[#2541B2] text-[18px] space-y-6">
+                <div className="ml-[45px]">Privacy Policy</div>
+                <hr className="border-[#2541B2]" />
+                <div className="ml-[45px]">Titanic Survival Prediction 2025</div>
+                </div>
             </div>
-  
-            {/* Yellow Box */}
-            <div className="bg-[#EEC750] h-[166px] flex flex-col justify-center text-[#2541B2] text-[18px] space-y-6">
-              <div className="ml-4 sm:ml-[45px]">Privacy Policy</div>
-              <hr className="border-[#2541B2]" />
-              <div className="ml-4 sm:ml-[45px]">Titanic Survival Prediction 2025</div>
-            </div>
-          </div>
         </footer>
       </div>
     );

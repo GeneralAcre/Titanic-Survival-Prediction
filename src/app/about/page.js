@@ -22,7 +22,7 @@ export default function About(){
 
                 </div>
 
-                <div className="text-[20px]">
+                <div className="text-[20px] mb-[50px]">
                    The original work provided valuable feature engineering techniques and predictive modeling approaches for 
                    the Titanic survival prediction problem.<br/>
                    <p className="mt-[10px]">Sincere thanks to Abhishek for sharing such a well-structured 
