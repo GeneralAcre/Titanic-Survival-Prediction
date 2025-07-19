@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <div>
       {/* Title Section */}
-      <div className="mt-[100px] sm:mt-[180px] md:mt-[245px] ml-4 sm:ml-6 md:ml-[45px]">
-        <div className="gradient-line text-3xl sm:text-4xl md:text-5xl font-medium leading-tight md:leading-[62px]">
+      <div className="mt-[100px] sm:mt-[180px] md:mt-[245px] ml-4 sm:ml-6 md:ml-[45px] text-[#EEC750]">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight md:leading-[62px]">
           TITANIC
         </div>
-        <div className="gradient-line text-3xl sm:text-4xl md:text-5xl font-medium leading-tight md:leading-[62px] animation-delay-1">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight md:leading-[62px]">
           SURVIVAL
         </div>
-        <div className="gradient-line text-3xl sm:text-4xl md:text-5xl font-medium leading-tight md:leading-[62px] animation-delay-2">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight md:leading-[62px]">
           PREDICTION
         </div>
       </div>
