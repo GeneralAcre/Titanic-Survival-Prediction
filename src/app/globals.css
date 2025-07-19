@@ -23,23 +23,5 @@ body {
   }
 }
 
-.gradient-line {
-  background: linear-gradient(to bottom, #bf4342, #f07167,#faf0ca);
-  background-size: 100% 200%;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
 
-  animation: verticalFill 4s ease-in-out infinite;
-}
-
-.animation-delay-1 {
-  animation-delay: 1s;
-}
-
-.animation-delay-2 {
-  animation-delay: 2s;
-}
 

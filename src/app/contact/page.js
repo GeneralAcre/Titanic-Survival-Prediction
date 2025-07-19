@@ -7,7 +7,7 @@ export default function Contact() {
             CONTACT
           </div>
           <p className="text-[#2541B2] bg-[#EEC750] px-2 py-1 text-[20px] mb-[35px] inline-block max-w-max">
-            Let’s build something great together!
+            Let&apos;s build something great together!
           </p>
   
           <div className="mb-[5px]">
@@ -24,26 +24,22 @@ export default function Contact() {
             <div className="w-[486px] max-w-full">
                 {/* Blue Box */}
                 <div className="bg-[#2541B2] h-[166px] relative">
-                <div className="text-[#EEC750] text-[18px] absolute top-[24px] ml-[45px]">
-                    Follow me on social network
-                </div>
+                  <div className="text-[#EEC750] text-[18px] absolute top-[24px] ml-[45px]">
+                      Follow me on social network
+                  </div>
 
-                {/* Buttons container */}
-                <div className="absolute top-[80px] left-[20px] right-[20px] flex justify-between px-0">
-                    <button className="border border-white text-white py-3 w-[170px]">
-                    Instagram
-                    </button>
-                    <button className="border border-white text-white py-3 w-[170px]">
-                    LinkedIn
-                    </button>
-                </div>
+                  {/* Buttons container */}
+                  <div className="absolute top-[80px] left-[20px] right-[20px] flex justify-between px-0">
+                      <button className="border border-white text-white py-3 w-[170px]">Instagram</button>
+                      <button className="border border-white text-white py-3 w-[170px]">LinkedIn</button>
+                  </div>
                 </div>
 
                 {/* Yellow Box */}
                 <div className="bg-[#EEC750] h-[166px] flex flex-col justify-center text-[#2541B2] text-[18px] space-y-6">
-                <div className="ml-[45px]">Privacy Policy</div>
-                <hr className="border-[#2541B2]" />
-                <div className="ml-[45px]">Titanic Survival Prediction 2025</div>
+                  <div className="ml-[45px]">Privacy Policy</div>
+                    <hr className="border-[#2541B2]" />
+                  <div className="ml-[45px]">Titanic Survival Prediction 2025</div>
                 </div>
             </div>
         </footer>
