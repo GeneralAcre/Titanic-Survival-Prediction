@@ -31,7 +31,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex items-center justify-center m-6">{/* Button */}
+      <div className="flex items-center justify-center m-6 mb-[20px]">{/* Button */}
         <Link
           href="/form"
           className="bg-[#EEC750] text-[#2541B2] px-6 py-3 rounded-[5px] font-bold text-lg hover:bg-[#d4ae42] transition-colors"
