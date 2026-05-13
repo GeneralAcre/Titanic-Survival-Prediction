@@ -3,6 +3,7 @@
 import './globals.css';
 import { Rethink_Sans } from 'next/font/google';
 import Menubar from './components/Menubar';
+import Footer from './components/Footer';
 
 const rethinkSans = Rethink_Sans({
   variable: '--font-RethinkSans',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={`${rethinkSans.variable} antialiased`}>
         <Menubar />
         {children}
+        <Footer />
       </body>
     </html>
   );

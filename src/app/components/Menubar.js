@@ -26,7 +26,6 @@ const Menubar = () => {
           <Link href="/"       className="text-[#2541B2] font-bold text-[16px] hover:text-[#EEC750] transition-colors">HOME</Link>
           <Link href="/about"  className="text-[#2541B2] font-bold text-[16px] hover:text-[#EEC750] transition-colors">ABOUT</Link>
           <Link href="/model"  className="text-[#2541B2] font-bold text-[16px] hover:text-[#EEC750] transition-colors">MODEL</Link>
-          <Link href="/contact" className="text-[#2541B2] font-bold text-[16px] hover:text-[#EEC750] transition-colors">CONTACT</Link>
         </nav>
 
         {/* Mobile Hamburger */}
@@ -57,7 +56,6 @@ const Menubar = () => {
             <Link href="/"       className="text-[32px] text-[#EEC750] font-bold" onClick={toggleMenu}>HOME</Link>
             <Link href="/about"  className="text-[32px] text-[#EEC750] font-bold" onClick={toggleMenu}>ABOUT</Link>
             <Link href="/model"  className="text-[32px] text-[#EEC750] font-bold" onClick={toggleMenu}>MODEL</Link>
-            <Link href="/contact" className="text-[32px] text-[#EEC750] font-bold" onClick={toggleMenu}>CONTACT</Link>
           </div>
         </div>
       )}
