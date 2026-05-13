@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import WordCloud from "./components/WordCloud";
 
 export default function Home() {
   return (
@@ -86,6 +87,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* ── WORD CLOUD ── */}
+      <WordCloud />
 
     </div>
   );
