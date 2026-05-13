@@ -1,31 +1,40 @@
 import Image from "next/image";
-import YourMainComponent from "../components/model";
+import Infographic from "../components/Infographic";
 
-export default function ModelPage() { // Renamed export for convention
+export default function ModelPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
 
-      <div className="bg-[#2541B2] pt-[65px] pb-[40px]">
-        <div className="max-w-screen-lg mx-auto">
-          <div className="text-5xl text-[#EEC750] font-medium mb-[40px] px-[45px]">MODEL</div>
-          <div className="relative h-[372px]">
-            <Image src="/Screenshot 2025-04-10 180518.png" alt="Jack" layout="fill" objectFit="cover" className="opacity-75" />
+      {/* Hero — full-bleed image with title overlaid at the bottom */}
+      <div className="relative w-full h-[280px] sm:h-[360px] md:h-[460px]">
+        <Image
+          src="/Screenshot 2025-04-10 180518.png"
+          alt="Model preview"
+          fill
+          className="object-cover"
+        />
+        {/* Blue gradient overlay — dark at bottom for text, fades to semi-transparent at top */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2541B2] via-[#2541B2]/50 to-[#2541B2]/10" />
+
+        {/* Title — sits on top of the gradient at the bottom */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 md:px-10 pb-8">
+          <div className="max-w-screen-lg mx-auto">
+            <div className="text-5xl md:text-6xl text-[#EEC750] font-medium">MODEL</div>
           </div>
         </div>
       </div>
-      <div className="max-w-screen-lg mx-auto px-[30px]"> 
-        <div className="justify-center mt-[30px]">
-          <blockquote className="text-black text-[20px] text-left mb-[5px] border-l-4 border-[#2541B2] pl-4">
+
+      {/* Content */}
+      <div className="max-w-screen-lg mx-auto px-6 md:px-10 w-full">
+        <div className="mt-10 mb-2">
+          <blockquote className="text-black text-[18px] leading-relaxed border-l-4 border-[#2541B2] pl-4">
             This page showcases the machine learning model that predicts whether a passenger
             would have survived the tragic sinking of the Titanic in 1912.
           </blockquote>
         </div>
-
-        <div className="text-[36px] text-[#2541B2] font-medium mt-[40px]">SURVIVED RATE</div>
-        <hr className="border-[#2541B2]" />
-        <YourMainComponent />
+        <Infographic />
       </div>
 
     </div>
-  )
+  );
 }

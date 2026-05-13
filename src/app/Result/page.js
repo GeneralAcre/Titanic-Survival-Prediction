@@ -3,96 +3,82 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Results() {
   const router = useRouter();
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData]     = useState(null);
   const [prediction, setPrediction] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  
+  const [isLoading, setIsLoading]   = useState(true);
+
   useEffect(() => {
-    // Retrieve data from session storage
     if (typeof window !== 'undefined') {
-      const storedData = sessionStorage.getItem('formData');
+      const storedData       = sessionStorage.getItem('formData');
       const storedPrediction = sessionStorage.getItem('prediction');
-      
       if (storedData && storedPrediction) {
         setUserData(JSON.parse(storedData));
         setPrediction(storedPrediction);
       } else {
-        // If there's no data, redirect back to form
         router.push('/');
       }
-      
       setIsLoading(false);
     }
   }, [router]);
 
-  // If still loading or no data was found, show loading state
   if (isLoading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-[#2541B2] text-white">
+        Loading...
+      </div>
+    );
   }
-  
-  // If no data was found and not redirecting yet
   if (!userData || !prediction) {
-    return <div className="flex justify-center items-center h-screen">No data found. Redirecting...</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-[#2541B2] text-white">
+        No data found. Redirecting...
+      </div>
+    );
   }
+
+  const survived = prediction === 'Survived';
 
   return (
-    <div className="bg-white w-full min-h-screen p-8">
-      
-      <div className="flex flex-col items-center max-w-6xl mx-auto ">
-        {/* Show only the relevant panel based on prediction */}
-        {prediction === 'Survived' ? (
+    <div className="min-h-screen bg-[#2541B2] flex flex-col items-center justify-center px-6 py-16">
 
-          <>
-            <Image src = "/Survived.jpg" alt="Survived" width={300} height={270} className="mx-auto block mt-[90px]"/>
-            <div className="flex justify-between items-center mb-6"></div>
+      <Image
+        src={survived ? '/Survived.jpg' : '/NotSurvived.jpg'}
+        alt={survived ? 'Survived' : 'Not Survived'}
+        width={300}
+        height={260}
+        className="rounded-xl shadow-2xl w-full max-w-[280px] sm:max-w-[320px] h-auto object-cover"
+      />
 
-            <h2 className="text-[36px] text-[#2541B2] font-bold mb-[40px] text-center">Congratulations</h2>
-            
-            <div className="mr-[30px] ml-[30px]">
-              {userData && (<p className="text-[20px] mb-4">Hello, {userData.userName}!</p>)}
-              
-              <p className="mb-[40px] text-[20px]">
-                Against the odds, you made it through one of the most tragic maritime disasters in history. <br/>
-                Your courage, timing, and a bit of luck helped you find a place on a lifeboat and reach safety.</p>
+      <h2 className="text-[40px] sm:text-[48px] text-[#EEC750] font-bold mt-10 mb-4 text-center leading-tight">
+        {survived ? 'Congratulations' : 'In Memoriam'}
+      </h2>
 
-            </div>
-          </>
+      <p className="text-white text-[20px] text-center mb-4">
+        {survived ? `Hello, ${userData.userName}!` : `In memory of ${userData.userName}`}
+      </p>
 
-        ) : (
+      <p className="text-white/70 text-[16px] text-center max-w-[480px] leading-relaxed mb-3">
+        {survived
+          ? 'Against the odds, you made it through one of the most tragic maritime disasters in history. Your courage, timing, and a bit of luck helped you find a place on a lifeboat and reach safety.'
+          : 'Despite every effort, you were among the many lives lost in the early hours of April 15, 1912. You were part of a moment in history that reshaped maritime safety forever.'}
+      </p>
 
-          /*Not Survived */
+      {!survived && (
+        <p className="text-white/50 text-[15px] text-center mb-4 italic">
+          May your memory live on through the generations.
+        </p>
+      )}
 
-          <>
-            <Image src = "/NotSurvived.jpg" alt="Not Survived" width={300} height={270} className="mx-auto block mt-[90px]"/>
-            <div className="flex justify-between items-center mb-6"></div>
-            
-            <h2 className="text-3xl text-[#2541B2] font-bold mb-[40px] text-center">In Memoriam</h2>
+      <Link href="/" className="mt-8">
+        <button className="bg-[#EEC750] text-[#243D9F] font-bold py-3 px-10 rounded-[5px] hover:bg-[#d4ae42] transition-colors">
+          Try Again
+        </button>
+      </Link>
 
-            <div className="mr-[30px] ml-[30px]">
-              {userData && (<p className="text-lg mb-4 text-[20px]">In memory of {userData.userName}</p>)}
-            
-              <p className="mb-4 text-[20px]">
-                Despite every effort, you were among the many lives lost in the early hours of April 15, 1912.<br/> 
-                You were part of a moment in history that reshaped maritime safety forever.
-              </p>
-              
-              <p className="mb-6 text-[20px]">
-                May your memory live on through the generations.
-              </p>
-
-            </div>
-          </>
-        )}
-        
-        {/* Return to Home page */}
-        <Link href="/">
-          <button className="mt-8 bg-[#EEC750] text-[#243D9F] py-2 w-[170px] rounded-[5px] hover:bg-[#d4ae42] mb-[30px]">Try Again</button>
-        </Link>
-      </div>
     </div>
   );
 }

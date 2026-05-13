@@ -1,49 +1,64 @@
 export default function Contact() {
-    return (
-      <div className="bg-white w-full h-full min-h-screen overflow-hidden">
-        {/* Main Content */}
-        <div className="ml-4 sm:ml-[45px] mr-4 sm:mr-0">
-          <div className="text-5xl text-[#2541B2] font-medium leading-[50px] mb-[40px] mt-[65px]">
-            CONTACT
-          </div>
-          <p className="text-[#2541B2] bg-[#EEC750] px-2 py-1 text-[20px] mb-[35px] inline-block max-w-max">
-            Let&apos;s build something great together!
-          </p>
-  
-          <div className="mb-[5px]">
-            <p className="font-medium text-[18px]">Call</p>
-            <p className="font-normal text-[18px] mb-[20px]">+66.84.145.5306</p>
-  
-            <p className="font-medium text-[18px]">Email</p>
-            <p className="font-normal text-[18px] mb-[55px]">sanpaphat14@gmail.com</p>
+  return (
+    <div className="min-h-screen bg-[#2541B2] flex flex-col">
+
+      <div className="max-w-screen-lg mx-auto px-6 md:px-10 pt-16 pb-24 flex-1 w-full">
+
+        {/* Title */}
+        <h1 className="text-[48px] sm:text-[56px] md:text-[64px] text-[#EEC750] font-bold leading-none">
+          CONTACT
+        </h1>
+        <p className="text-white/60 text-[15px] mt-3 mb-10">
+          Let&apos;s build something great together.
+        </p>
+
+        <hr className="border-white/20 mb-14" />
+
+        {/* Email — large and prominent */}
+        <div className="mb-16">
+          <span className="text-[11px] font-bold tracking-[0.22em] text-[#EEC750] uppercase block mb-4">
+            Email
+          </span>
+          <a
+            href="mailto:sanpaphat14@gmail.com"
+            className="text-white text-[18px] sm:text-[20px] font-medium hover:text-[#EEC750] transition-colors break-all"
+          >
+            sanpaphat14@gmail.com
+          </a>
+        </div>
+
+        <hr className="border-white/20 mb-14" />
+
+        {/* Social */}
+        <div>
+          <span className="text-[11px] font-bold tracking-[0.22em] text-[#EEC750] uppercase block mb-6">
+            Social
+          </span>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://x.com/Acrepedia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white/40 text-white px-10 py-3 text-[15px] font-bold hover:bg-white hover:text-[#2541B2] transition-colors rounded-[4px]"
+            >
+              X
+            </a>
+            <button className="border border-white/40 text-white px-10 py-3 text-[15px] font-bold hover:bg-white hover:text-[#2541B2] transition-colors rounded-[4px]">
+              LinkedIn
+            </button>
           </div>
         </div>
-  
-        {/* Footer */}
-        <footer className="mt-auto flex justify-center">
-            <div className="w-[486px] max-w-full">
-                {/* Blue Box */}
-                <div className="bg-[#2541B2] h-[166px] relative">
-                  <div className="text-[#EEC750] text-[18px] absolute top-[24px] ml-[45px]">
-                      Follow me on social network
-                  </div>
 
-                  {/* Buttons container */}
-                  <div className="absolute top-[80px] left-[20px] right-[20px] flex justify-between px-0">
-                      <button className="border border-white text-white py-3 w-[170px]">Instagram</button>
-                      <button className="border border-white text-white py-3 w-[170px]">LinkedIn</button>
-                  </div>
-                </div>
-
-                {/* Yellow Box */}
-                <div className="bg-[#EEC750] h-[166px] flex flex-col justify-center text-[#2541B2] text-[18px] space-y-6">
-                  <div className="ml-[45px]">Privacy Policy</div>
-                    <hr className="border-[#2541B2]" />
-                  <div className="ml-[45px]">Titanic Survival Prediction 2025</div>
-                </div>
-            </div>
-        </footer>
       </div>
-    );
-  }
-  
+
+      {/* Footer */}
+      <div className="bg-[#EEC750] py-5 px-6 md:px-10">
+        <div className="max-w-screen-lg mx-auto text-[#2541B2] text-[14px] flex flex-col sm:flex-row sm:justify-between gap-1">
+          <span>Privacy Policy</span>
+          <span>Titanic Survival Prediction 2025</span>
+        </div>
+      </div>
+
+    </div>
+  );
+}
